@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        select {
+            width: 200px;
+            height: 400px;
+            overflow: hidden;
+            border: 2px solid gray;
+            margin: 10px 50px;
+            position: relative;
+        }
+
+        option {
+            font-size: 18px;
+            font-weight: 550;
+        }
+
+        #add,#addAll,#delete,#deleteAll {
+            width: 250px;
+            height: 50px;
+            background-color: gray;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .right {
+            position: absolute;
+            left: 333px;
+            top: 428px;
+        }
+    </style>
+</head>
+
+<body>
+    <select multiple name="" id="select1">
+        <option value="a">选项1</option>
+        <option value="b">选项2</option>
+        <option value="c">选项3</option>
+        <option value="d">选项4</option>
+        <option value="e">选项5</option>
+    </select>
+    <select multiple name="" id="select2"></select>
+    <div class="left">
+        <div id="add">选中添加到右边>></div>
+        <div id="addAll">全部添加到右边>></div>
+    </div>
+    <div class="right">
+        <div id="delete"> &lt;&lt;选中删除到左边 </div>
+        <div id="deleteAll">&lt;&lt;全部删除到左边 </div>
+    </div>
+
+    <script>
+        $("#select1").on("dblclick","option",function(){
+            $("#select2").append(this)
+        })
+        $("#select2").on("dblclick","option",function(){
+            $("#select1").append(this)
+        })
+        $("#add").on("click",function(){
+            $("#select2").append($("#select1 option:selected"))
+        //    console.log($("#select1 option:selected"));
+        })
+        $("#delete").on("click",function(){
+            $("#select1").append($("#select2 option:selected"))
+        })
+        $("#addAll").on("click",function(){
+            $("#select2").append($("#select1 option"))
+        })
+        $("#deleteAll").on("click",function(){
+            $("#select1").append($("#select2 option"))
+        })
+    </script>
+</body>
+
+</html>

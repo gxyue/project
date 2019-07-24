@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //打开终端 输入live-server 就可以运行前端静态文件
+
+        // var nowDate = new Date();
+        // nowDate.setDate(nowDate.getDate()-1)
+        // document.cookie = 'fellow=32'
+        // document.cookie = "test32=32;expires="+nowDate.toUTCString()
+        // console.log(document.cookie);
+        
+        // setCookie('fellow',"32",1);
+        // getCookie("fellow")//32
+        // delCookie("fellow")
+
+        setCookie('name',"abc",1);
+        setCookie('age',"12",1);
+        getCookie("name")
+
+        function setCookie(name,val,lastdate){
+            var nowDate = new Date();
+            nowDate.setDate(nowDate.getDate()+parseInt(lastdate))
+            // console.log(nowDate.toUTCString());
+            
+            document.cookie = name +"="+val+';expires='+nowDate.toUTCString();
+        }
+
+        setCookie("gao","18",4)
+
+       
+
+        function delCookie(name){
+            var nowDate = new Date();
+            nowDate.setDate(nowDate.getDate()-1)
+            document.cookie = name +'=null;expires='+nowDate.toUTCString();
+        }
+        delCookie("gao")
+
+        //trim()去前后空格
+        function getCookie(name){
+            var arr = document.cookie.split(";");
+            for(var i=0;i<arr.length;i++){
+                if(arr[i].split("=")[0].trim()==name){
+                    // return arr[i].split("=")[1];
+                    console.log(arr[i].split("=")[1])
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

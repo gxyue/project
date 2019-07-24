@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        div {
+            font-size: 16px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        input {
+            height: 30px;
+            width: 200px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        thead td {
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+        }
+        .dd,.bb,.ee{
+        
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div>筛选：<input type="text" id="inp"/></div>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>暂住地</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="dd">
+                <td >前台设计组</td> 
+                <td ></td>
+                <td ></td>
+
+            </tr>
+            <tr class="aa">
+                <td>张山</td>
+                <td>男</td>
+                <td>浙江宁波</td>
+            </tr>
+            <tr class="aa">
+                <td>李四</td>
+                <td>女</td>
+                <td>浙江杭州</td>
+            </tr>
+            <tr class="bb">
+                <td >
+                    前台开发组
+                
+                </td> 
+                <td></td>
+                <td></td>
+
+            </tr>
+                <tr class="cc">
+                <td>王五</td>
+                <td>男</td>
+                <td>湖南长沙</td>
+            </tr>
+            <tr class="cc">
+                <td>找六</td>
+                <td>男</td>
+                <td>浙江温州</td>
+            </tr>
+            <tr class="ee">
+                <td >
+                  后台开发组  
+                </td>
+                <td ></td>
+                <td ></td>
+
+            </tr>
+            <tr >
+                <td>Rain</td>
+                <td>男</td>
+                <td>浙江杭州</td>
+            </tr>
+            <tr >
+                <td>MAXMAN</td>
+                <td>女</td>
+                <td>浙江杭州</td>
+            </tr>
+           
+        </tbody>
+
+    </table>
+    <script>
+    //  $("#inp").on("keyup",function(){
+    //   var thisVal = $(this).val()
+    //   $("tbody tr").css("display","none");
+    //   $("tbody tr:contains("+thisVal+")").css("display","block");
+    // })
+        // $(".dd").css("background-color","red")
+
+        $(".dd").on("click",function(){
+            $(".aa").toggle();
+        })
+        $(".bb").on("click",function(){
+            $(".cc").toggle();
+        })
+        $(".ee").on("click",function(){
+            $(".ee").nextAll().toggle();
+        })
+    </script>
+</body>
+
+</html>
