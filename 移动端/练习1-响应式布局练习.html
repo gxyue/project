@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .lyout{
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .head,.foot{
+            height: 60px;
+            background-color: #ff9988;
+            text-align: center;
+            line-height: 50px;
+            margin: 10px 0;
+        }
+       
+        .con-img{
+            max-width: 960px;
+            /* height: 400px;   不能写死 */
+            background-image: url(./img/img1.jpg);
+            /* background-repeat: no-repeat; */
+            background-size: cover;
+
+            /* 用来实现缩放效果  所得百分比是背景图片高宽比 这张图片是450*720 */
+            padding-bottom: 62.5%;
+
+        }
+        .cont{
+            text-align: center;
+            /* width: 960px; */
+            position: relative;
+        }
+        .left{
+            width: 65%;
+            height: 200px;
+            background-color: blue;
+            float: left;
+            position: relative;
+            /* margin-right: 36px; */
+        }
+        .right{
+            height: 200px;
+            width: 30%;
+            float: right;
+            background-color: red;
+            position: relative;
+        }
+        .cont p{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%)
+        }
+        @media(max-width:600px){
+            .left,.right{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lyout">
+        <div class="header">
+            <div class="head">页头</div>
+            <div class="head">导航</div>
+        </div>
+        <div class="con-img"></div>
+        <div class="cont  clearfix">
+            <div class="left "><p> 在 W3School，你可以找到你所需要的所有的网站建设教程。从基础的 HTML 到 CSS，乃至进阶的 XML、SQL、JS、PHP 和 ASP.NET。</p></div>
+            <div class="right "><p> 在 W3School，你可以找到你所需要的所有的网站建设教程。从基础的 HTML 到 CSS，乃至进阶的 XML、SQL、JS、PHP 和 ASP.NET。</p></div>
+        </div>
+        <div class="foot">底部</div>
+    </div>
+</body>
+</html>

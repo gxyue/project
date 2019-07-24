@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #cans {
+            background-color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas id="cans" width="300" height="300"></canvas>
+    <script>
+        var oCans = document.getElementById("cans")
+        var context = oCans.getContext("2d");
+        oCans.ontouchstart = function (e) {
+            context.beginPath();
+            var left = e.changedTouches[0].clientX;
+            var right = e.changedTouches[0].clientY;
+            context.moveTo(left, right);
+        }
+       
+        oCans.ontouchmove = function (e) {
+            var left = e.changedTouches[0].clientX;
+            var right = e.changedTouches[0].clientY;
+            console.log(left, right);
+            context.lineTo(left , right );
+            context.strokeStyle = 'white';
+            context.stroke();
+        }
+
+    </script>
+</body>
+
+</html>
